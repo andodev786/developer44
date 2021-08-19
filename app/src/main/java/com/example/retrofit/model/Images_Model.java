@@ -1,6 +1,6 @@
 package com.example.retrofit.model;
 
-public class Images {
+public class Images_Model {
     private int albumId;
     private int id;
     private String title;
@@ -27,7 +27,8 @@ public class Images {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(String title)
+    {
         this.title = title;
     }
 

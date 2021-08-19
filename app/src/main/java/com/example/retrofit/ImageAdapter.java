@@ -1,6 +1,5 @@
 package com.example.retrofit;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,64 +9,48 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import com.example.retrofit.model.Images_Model;
 
-public class ImaageAdapter extends RecyclerView.Adapter<ImaageAdapter.foodViewHolder> {
-    Context context;
-    ArrayList<food> foods;
+import java.util.List;
 
+public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> {
+private List<Images_Model> imagesList;
 
-    public ImaageAdapter(Context context, ArrayList<food> foods,ArrayList<food> foods1)
-    {
-        this.context=context;
-        this.foods=foods;
-
+    public ImageAdapter(List<Images_Model> imagesList) {
+        this.imagesList = imagesList;
     }
 
-    {
-
-    }
     @NonNull
     @Override
-    public foodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.data_set,parent,false);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
 
 
-        return new foodViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull foodViewHolder holder, int position)
-    {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        food food=foods.get(position);
-        holder.foodimage.setImageResource(food.getImage());
-        holder.title.setText(food.getText());
-        holder.textView1.setText(food.getText());
+        holder.text.setText(imagesList.get(position).getTitle());
+        holder.url.setText(imagesList.get(position).getUrl());
 
     }
 
     @Override
-    public int getItemCount()
-    {
-        return foods.size();
+    public int getItemCount() {
+        return imagesList.size();
     }
 
-    public class foodViewHolder extends RecyclerView.ViewHolder
-
-    {
-        ImageView foodimage;
-        TextView title;
-        TextView textView1;
-        public foodViewHolder(@NonNull View itemView)
-        {
+    public class ViewHolder extends  RecyclerView.ViewHolder{
+            TextView text;
+            ImageView image;
+        TextView url;
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            foodimage=itemView.findViewById(R.id.image);
-            title=itemView.findViewById(R.id.title);
-            textView1=itemView.findViewById(R.id.title1);
-
-
+                text=itemView.findViewById(R.id.text);
+                image=itemView.findViewById(R.id.image);
+                url=itemView.findViewById(R.id.url);
 
         }
     }
