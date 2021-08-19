@@ -1,6 +1,6 @@
 package com.example.retrofit;
 
-import com.example.retrofit.model.Images;
+import com.example.retrofit.model.Images_Model;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ String BASE_URL="https://jsonplaceholder.typicode.com/";
 String FEED="photos";
 Retrofit retrofit=new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 @GET(FEED)
-    Call<List<Images>> getPosts();
+    Call<List<Images_Model>> getPosts();
 
 
 
