@@ -1,6 +1,7 @@
 package com.example.retrofit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -19,7 +20,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
 
-@BindView(R.id.textview)
+RecyclerView recyclerView;
 TextView textv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ TextView textv;
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
        // textv=findViewById(R.id.textview);
+        recyclerView=(RecyclerView)findViewById(R.id.recyclerview);
 
 showData();
     }
